@@ -25,6 +25,7 @@ const config: Config = {
         tangerine: "#be4f1f", // Burnt Tangerine
         peach: "#edc2a3", // Soft Peach
         linen: "#e3ded4", // Warm Light Beige
+        plum: "#4a3c3a", // For body text on light backgrounds
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

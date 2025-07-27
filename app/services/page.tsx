@@ -1,6 +1,19 @@
-import Link from "next/link"
+"use client"
+
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { StickyHeader } from "@/components/sticky-header"
+import { FloatingCTA } from "@/components/floating-cta"
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+}
+
+const staggerChildren = {
+  visible: { transition: { staggerChildren: 0.1 } },
+}
 
 export default function ServicesPage() {
   const services = [
@@ -21,7 +34,7 @@ export default function ServicesPage() {
           name: "Fantasy Hair Color",
           price: "Starting at $200",
           description: "Bold, creative colors including pastels, vivids, and unique color combinations",
-        }
+        },
       ],
     },
     {
@@ -30,7 +43,7 @@ export default function ServicesPage() {
         {
           name: "Precision Haircuts",
           price: "Starting at $55",
-          description: "Expert cutting tailored to your face shape, hair texture, and lifestyle. style included",
+          description: "Expert cutting tailored to your face shape, hair texture, and lifestyle. Style included",
         },
         {
           name: "Hair Styling",
@@ -49,17 +62,17 @@ export default function ServicesPage() {
       treatments: [
         {
           name: "Tape-In Extensions",
-          price: "consultation needed",
+          price: "Consultation needed",
           description: "Seamless, reusable extensions for length and volume",
         },
         {
           name: "Hand-Tied Extensions",
-          price: "consultation needed",
+          price: "Consultation needed",
           description: "Premium hand-tied wefts for the most natural look and feel",
         },
         {
           name: "Keratin Bond Extensions",
-          price: "consultation needed",
+          price: "Consultation needed",
           description: "Individual strand extensions for maximum customization",
         },
       ],
@@ -68,9 +81,9 @@ export default function ServicesPage() {
       category: "NAIL SERVICES",
       treatments: [
         {
-          name: "removal and repairs",
+          name: "Removal and Repairs",
           price: "Starting at $10",
-          description: "soak off or repair indivifual nails",
+          description: "Soak off or repair individual nails",
         },
         {
           name: "Gel Manicures",
@@ -88,91 +101,94 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-linen">
-      {/* Header */}
-      <header className="relative z-10 bg-linen border-b border-peach">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="text-2xl font-serif font-bold tracking-wider text-espresso">
-              ALCHEMY BEAUTY STUDIO
-            </Link>
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/services" className="text-sm font-sans font-medium tracking-wide text-clay">
-                SERVICES
-              </Link>
-              <Link
-                href="/about"
-                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
-              >
-                ABOUT US
-              </Link>
-              <Link
-                href="/team"
-                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
-              >
-                MEET THE TEAM
-              </Link>
-              <Link
-                href="/press"
-                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
-              >
-                PRESS
-              </Link>
-              <Link
-                href="/contact"
-                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
-              >
-                CONTACT
-              </Link>
-            </nav>
-            <Button className="hidden md:inline-flex bg-tangerine text-white hover:bg-clay font-sans font-medium tracking-wide text-sm px-6 py-2 rounded-full transition-colors">
-              BOOK AN APPOINTMENT
-            </Button>
-          </div>
+      <StickyHeader />
+      <FloatingCTA />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 bg-peach">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center max-w-4xl mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={staggerChildren}
+          >
+            <motion.h1
+              className="text-5xl md:text-6xl font-serif font-bold tracking-wider text-espresso mb-6"
+              variants={fadeInUp}
+            >
+              SERVICES
+            </motion.h1>
+            <motion.div className="w-16 h-1 bg-tangerine mx-auto mb-6" variants={fadeInUp}></motion.div>
+            <motion.p className="text-lg font-sans text-plum max-w-2xl mx-auto" variants={fadeInUp}>
+              Experience luxury hair care with our comprehensive range of services, delivered by our team of expert
+              stylists using only the finest products.
+            </motion.p>
+          </motion.div>
         </div>
-      </header>
+      </section>
 
       {/* Services Content */}
       <main className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-wider text-espresso mb-6">SERVICES</h1>
-            <p className="text-lg font-sans text-clay max-w-2xl mx-auto">
-              Experience luxury hair care with our comprehensive range of services, delivered by our team of expert
-              stylists using only the finest products.
-            </p>
-          </div>
-
-          <div className="space-y-16">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="space-y-20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerChildren}
+          >
             {services.map((category, index) => (
-              <div key={index} className="border-b border-peach pb-16 last:border-b-0">
-                <h2 className="text-2xl font-serif font-semibold tracking-wide text-espresso mb-8 text-center">
+              <motion.div
+                key={index}
+                className={`${index % 2 === 0 ? "bg-linen" : "bg-peach"} rounded-2xl p-12 border-b border-peach pb-16 last:border-b-0`}
+                variants={fadeInUp}
+              >
+                <h2 className="text-3xl font-serif font-semibold tracking-wide text-espresso mb-12 text-center">
                   {category.category}
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {category.treatments.map((treatment, treatmentIndex) => (
-                    <Card key={treatmentIndex} className="border-0 shadow-none bg-peach">
-                      <CardContent className="p-6 text-center">
-                        <h3 className="text-xl font-serif font-semibold tracking-wide text-espresso mb-2">
-                          {treatment.name}
-                        </h3>
-                        <p className="text-lg font-sans font-medium text-tangerine mb-4">{treatment.price}</p>
-                        <p className="text-sm font-sans text-clay leading-relaxed">{treatment.description}</p>
-                      </CardContent>
-                    </Card>
+                    <motion.div
+                      key={treatmentIndex}
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Card className="border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300 h-full">
+                        <CardContent className="p-6 text-center h-full flex flex-col justify-between">
+                          <div>
+                            <h3 className="text-xl font-serif font-semibold tracking-wide text-espresso mb-2">
+                              {treatment.name}
+                            </h3>
+                            <p className="text-lg font-sans font-medium text-tangerine mb-4">{treatment.price}</p>
+                            <p className="text-sm font-sans text-plum leading-relaxed">{treatment.description}</p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="text-center mt-16">
-            <p className="text-sm font-sans text-clay mb-8">
+          <motion.div
+            className="text-center mt-20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+          >
+            <p className="text-sm font-sans text-plum mb-8">
               All services include a complimentary consultation. Prices may vary based on hair length and condition.
             </p>
-            <Button className="bg-tangerine text-white hover:bg-clay font-sans font-medium tracking-wide px-8 py-3 rounded-full transition-colors">
-              BOOK YOUR APPOINTMENT
-            </Button>
-          </div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+              <Button className="bg-tangerine text-white hover:brightness-110 font-sans font-medium tracking-wide px-8 py-3 rounded-full transition-all">
+                BOOK YOUR APPOINTMENT
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
       </main>
     </div>
