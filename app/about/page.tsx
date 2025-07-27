@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { StickyHeader } from "@/components/sticky-header"
-import { FloatingCTA } from "@/components/floating-cta"
+import { MobileCTA } from "@/components/mobile-cta"
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -19,7 +19,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-linen">
       <StickyHeader />
-      <FloatingCTA />
+      <MobileCTA />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-peach">
@@ -38,7 +38,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto space-y-20">
           {/* Our Story Section */}
           <motion.div
-            className="grid lg:grid-cols-2 gap-16 items-center"
+            className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -71,13 +71,13 @@ export default function AboutPage() {
 
           {/* Our Philosophy Section */}
           <motion.div
-            className="grid lg:grid-cols-2 gap-16 items-center bg-peach rounded-2xl p-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-peach rounded-lg shadow-md p-6"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerChildren}
           >
-            <motion.div className="space-y-6 lg:order-2" variants={fadeInUp}>
+            <motion.div className="space-y-6 md:order-2" variants={fadeInUp}>
               <h2 className="text-4xl font-serif font-semibold tracking-wide text-espresso">Our Philosophy</h2>
               <div className="w-16 h-1 bg-tangerine"></div>
               <p className="text-lg font-sans text-plum leading-relaxed">
@@ -91,7 +91,7 @@ export default function AboutPage() {
                 techniques to deliver results that exceed your expectations.
               </p>
             </motion.div>
-            <motion.div className="lg:order-1" variants={fadeInUp}>
+            <motion.div className="md:order-1" variants={fadeInUp}>
               <Image
                 src="/placeholder.svg?height=600&width=500&text=Premium+Hair+Products"
                 alt="Premium hair care products"
@@ -104,7 +104,7 @@ export default function AboutPage() {
 
           {/* Awards Section */}
           <motion.div
-            className="bg-linen rounded-2xl p-12 text-center"
+            className="bg-linen rounded-lg shadow-md p-6 text-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -118,21 +118,21 @@ export default function AboutPage() {
             </motion.h2>
             <motion.div className="grid md:grid-cols-3 gap-8" variants={staggerChildren}>
               <motion.div variants={fadeInUp}>
-                <div className="bg-peach rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-peach rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-md">
                   <span className="text-2xl font-serif font-bold text-tangerine">2023</span>
                 </div>
                 <h3 className="text-xl font-serif font-medium text-espresso mb-2">Best Salon</h3>
                 <p className="text-sm font-sans text-plum">Reno Magazine</p>
               </motion.div>
               <motion.div variants={fadeInUp}>
-                <div className="bg-peach rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-peach rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-md">
                   <span className="text-2xl font-serif font-bold text-tangerine">2023</span>
                 </div>
                 <h3 className="text-xl font-serif font-medium text-espresso mb-2">Top Colorist</h3>
                 <p className="text-sm font-sans text-plum">Nevada Beauty Awards</p>
               </motion.div>
               <motion.div variants={fadeInUp}>
-                <div className="bg-peach rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-peach rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-md">
                   <span className="text-2xl font-serif font-bold text-tangerine">2023</span>
                 </div>
                 <h3 className="text-xl font-serif font-medium text-espresso mb-2">Eco-Friendly Salon</h3>
@@ -150,7 +150,7 @@ export default function AboutPage() {
             variants={fadeInUp}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button className="bg-tangerine text-white hover:brightness-110 font-sans font-medium tracking-wide px-8 py-3 rounded-full transition-all">
+              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow transition-all duration-200 font-sans font-medium tracking-wide">
                 BOOK YOUR APPOINTMENT
               </Button>
             </motion.div>

@@ -5,8 +5,9 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { StickyHeader } from "@/components/sticky-header"
-import { FloatingCTA } from "@/components/floating-cta"
-import { Phone, Mail, Instagram, MapPin } from "lucide-react"
+import { MobileCTA } from "@/components/mobile-cta"
+import { PoliciesAccordion } from "@/components/policies-accordion"
+import { Phone, Mail, Instagram, MapPin, ExternalLink } from "lucide-react"
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -20,6 +21,21 @@ const staggerChildren = {
 const scaleIn = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+}
+
+const wordStagger = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const wordVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 }
 
 export default function Component() {
@@ -96,10 +112,23 @@ export default function Component() {
     },
   ]
 
+  const heroWords = ["Where", "color", "meets", "craft."]
+  const taglineWords = [
+    "Reno's",
+    "destination",
+    "for",
+    "elevated",
+    "hair,",
+    "nail,",
+    "and",
+    "bridal",
+    "transformations.",
+  ]
+
   return (
     <div className="min-h-screen bg-linen">
       <StickyHeader />
-      <FloatingCTA />
+      <MobileCTA />
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -128,28 +157,40 @@ export default function Component() {
 
           <motion.h1
             className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6"
-            variants={fadeInUp}
+            variants={wordStagger}
+            initial="hidden"
+            animate="visible"
           >
-            Where color meets craft.
+            {heroWords.map((word, index) => (
+              <motion.span key={index} variants={wordVariant} className="inline-block mr-4">
+                {word}
+              </motion.span>
+            ))}
           </motion.h1>
 
           <motion.p
             className="text-xl md:text-2xl lg:text-3xl font-sans font-light text-peach mb-12"
-            variants={fadeInUp}
+            variants={wordStagger}
+            initial="hidden"
+            animate="visible"
           >
-            Reno's destination for elevated hair, nail, and bridal transformations.
+            {taglineWords.map((word, index) => (
+              <motion.span key={index} variants={wordVariant} className="inline-block mr-2">
+                {word}
+              </motion.span>
+            ))}
           </motion.p>
 
           <motion.div className="flex flex-col sm:flex-row gap-4 justify-center items-center" variants={fadeInUp}>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button className="bg-tangerine text-white hover:brightness-110 font-sans font-medium px-8 py-3 text-lg rounded-full transition-all">
+              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow transition-all duration-200 font-sans font-medium text-lg">
                 Book Appointment
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Button
                 variant="outline"
-                className="border-peach text-peach hover:bg-peach hover:text-espresso font-sans font-medium px-8 py-3 text-lg rounded-full bg-transparent transition-all"
+                className="border-peach text-peach hover:bg-peach hover:text-espresso font-sans font-medium px-8 py-3 text-lg rounded-full bg-transparent transition-all duration-200"
               >
                 See Services
               </Button>
@@ -162,7 +203,7 @@ export default function Component() {
       <section className="bg-peach py-20">
         <div className="container mx-auto px-4">
           <motion.div
-            className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -191,7 +232,7 @@ export default function Component() {
                 care with modern techniques to achieve stunning results.
               </p>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Button className="bg-tangerine text-white hover:brightness-110 font-sans font-medium tracking-wide px-8 py-3 rounded-full transition-all">
+                <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow transition-all duration-200 font-sans font-medium tracking-wide">
                   LEARN MORE ABOUT US
                 </Button>
               </motion.div>
@@ -227,7 +268,7 @@ export default function Component() {
           >
             {services.map((category, index) => (
               <motion.div key={index} className="border-b border-peach pb-16 last:border-b-0" variants={fadeInUp}>
-                <h3 className="text-2xl font-serif font-semibold tracking-wide text-espresso mb-8 text-center">
+                <h3 className="text-2xl font-serif font-semibold tracking-wide text-tangerine mb-8 text-center">
                   {category.category}
                 </h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -237,9 +278,13 @@ export default function Component() {
                       whileHover={{ scale: 1.05, y: -5 }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ duration: 0.2 }}
+                      variants={scaleIn}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
                     >
-                      <Card className="border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300 h-full">
-                        <CardContent className="p-6 text-center h-full flex flex-col justify-between">
+                      <Card className="rounded-lg shadow-md p-6 bg-white hover:shadow-xl transition-all duration-300 h-full border-0">
+                        <CardContent className="p-0 text-center h-full flex flex-col justify-between">
                           <div>
                             <h4 className="text-xl font-serif font-semibold tracking-wide text-espresso mb-2">
                               {treatment.name}
@@ -258,12 +303,12 @@ export default function Component() {
         </div>
       </section>
 
-      {/* Bridal/Specialty Section with Parallax */}
-      <section className="relative bg-peach py-20 overflow-hidden">
+      {/* Bridal Section with Veil Texture */}
+      <section className="relative bg-gradient-to-br from-linen to-peach py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
             src="/placeholder.svg?height=800&width=1200&text=Bridal+Veil+Texture"
-            alt="Bridal texture background"
+            alt="Bridal veil texture background"
             fill
             className="object-cover"
           />
@@ -276,16 +321,16 @@ export default function Component() {
           variants={staggerChildren}
         >
           <motion.h2 className="text-4xl md:text-5xl font-serif font-bold text-espresso mb-6" variants={fadeInUp}>
-            BRIDAL & SPECIAL EVENTS
+            Timeless Bridal Styling
           </motion.h2>
           <motion.div className="w-16 h-1 bg-tangerine mx-auto mb-6" variants={fadeInUp}></motion.div>
           <motion.p className="text-xl font-sans text-plum mb-8 leading-relaxed" variants={fadeInUp}>
             Make your special day unforgettable with our expert bridal styling services. From elegant updos to flawless
-            makeup, we'll help you look and feel your absolute best.
+            color, we'll help you look and feel your absolute best on your wedding day.
           </motion.p>
           <motion.div variants={fadeInUp}>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button className="bg-tangerine text-white hover:brightness-110 font-sans font-medium tracking-wide px-8 py-3 rounded-full transition-all">
+              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow transition-all duration-200 font-sans font-medium tracking-wide">
                 BOOK BRIDAL CONSULTATION
               </Button>
             </motion.div>
@@ -293,8 +338,32 @@ export default function Component() {
         </motion.div>
       </section>
 
-      {/* Contact Block */}
+      {/* Policies Section */}
       <section className="bg-linen py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerChildren}
+          >
+            <motion.div className="text-center mb-12" variants={fadeInUp}>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-espresso mb-6">SALON POLICIES</h2>
+              <div className="w-16 h-1 bg-tangerine mx-auto mb-6"></div>
+              <p className="text-lg font-sans text-plum">
+                Please review our policies to ensure the best experience for all our clients.
+              </p>
+            </motion.div>
+            <motion.div variants={fadeInUp}>
+              <PoliciesAccordion />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Block */}
+      <section className="bg-peach py-20 border-t border-linen">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-4xl mx-auto text-center"
@@ -310,18 +379,26 @@ export default function Component() {
 
             <motion.div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" variants={staggerChildren}>
               <motion.div className="text-center" variants={scaleIn}>
-                <div className="bg-peach rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-linen rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
                   <MapPin className="w-8 h-8 text-tangerine" />
                 </div>
                 <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Location</h3>
-                <p className="text-sm font-sans text-plum">
+                <p className="text-sm font-sans text-plum mb-2">
                   120 Thoma St, Suite 2<br />
                   Reno, NV 89501
                 </p>
+                <a
+                  href="https://maps.apple.com/?q=120+Thoma+St+Suite+2+Reno+NV+89501"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-xs font-sans text-tangerine hover:text-clay transition-colors"
+                >
+                  View on Maps <ExternalLink className="w-3 h-3 ml-1" />
+                </a>
               </motion.div>
 
               <motion.div className="text-center" variants={scaleIn}>
-                <div className="bg-peach rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-linen rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
                   <Phone className="w-8 h-8 text-tangerine" />
                 </div>
                 <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Phone/Text</h3>
@@ -334,7 +411,7 @@ export default function Component() {
               </motion.div>
 
               <motion.div className="text-center" variants={scaleIn}>
-                <div className="bg-peach rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-linen rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
                   <Mail className="w-8 h-8 text-tangerine" />
                 </div>
                 <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Email</h3>
@@ -347,7 +424,7 @@ export default function Component() {
               </motion.div>
 
               <motion.div className="text-center" variants={scaleIn}>
-                <div className="bg-peach rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-linen rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
                   <Instagram className="w-8 h-8 text-tangerine" />
                 </div>
                 <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Instagram</h3>
@@ -362,7 +439,7 @@ export default function Component() {
               </motion.div>
             </motion.div>
 
-            <motion.div className="bg-peach rounded-lg p-8" variants={fadeInUp}>
+            <motion.div className="bg-linen rounded-lg p-8 shadow-md border border-peach" variants={fadeInUp}>
               <h3 className="text-2xl font-serif font-semibold text-espresso mb-4">Hours</h3>
               <p className="text-lg font-sans text-plum">Monday - Saturday: 9:00 AM - 6:00 PM</p>
               <p className="text-sm font-sans text-plum mt-2">Closed Sundays</p>

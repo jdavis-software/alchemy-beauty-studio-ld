@@ -16,9 +16,33 @@ const lato = Lato({
 })
 
 export const metadata: Metadata = {
-  title: "Alchemy Beauty Studio - Where Color Meets Craft",
-  description: "Reno's destination for elevated hair, nail, and bridal transformations",
-    generator: 'v0.dev'
+  title: "Alchemy Beauty Studio – Reno, NV | Where Color Meets Craft",
+  description:
+    "Reno's premier boutique salon specializing in blonding, custom color, fantasy hues, extensions, nails, and bridal styling. Located in Midtown Reno at 120 Thoma St.",
+  keywords: "hair salon Reno, blonding specialist, hair color, extensions, nail services, bridal styling, Midtown Reno",
+  openGraph: {
+    title: "Alchemy Beauty Studio – Reno, NV",
+    description: "Where color meets craft. Reno's destination for elevated hair, nail, and bridal transformations.",
+    url: "https://alchemybeautystudio.com",
+    siteName: "Alchemy Beauty Studio",
+    images: [
+      {
+        url: "/placeholder.svg?height=630&width=1200&text=Alchemy+Beauty+Studio",
+        width: 1200,
+        height: 630,
+        alt: "Alchemy Beauty Studio - Reno's Premier Hair Salon",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Alchemy Beauty Studio – Reno, NV",
+    description: "Where color meets craft. Reno's destination for elevated hair, nail, and bridal transformations.",
+    images: ["/placeholder.svg?height=630&width=1200&text=Alchemy+Beauty+Studio"],
+  },
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -28,6 +52,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      </head>
       <body className={`${playfair.variable} ${lato.variable} font-sans antialiased`}>{children}</body>
     </html>
   )

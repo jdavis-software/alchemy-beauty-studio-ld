@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { StickyHeader } from "@/components/sticky-header"
-import { FloatingCTA } from "@/components/floating-cta"
+import { MobileCTA } from "@/components/mobile-cta"
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -13,6 +13,11 @@ const fadeInUp = {
 
 const staggerChildren = {
   visible: { transition: { staggerChildren: 0.1 } },
+}
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
 }
 
 export default function ServicesPage() {
@@ -102,7 +107,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-linen">
       <StickyHeader />
-      <FloatingCTA />
+      <MobileCTA />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-peach">
@@ -141,10 +146,10 @@ export default function ServicesPage() {
             {services.map((category, index) => (
               <motion.div
                 key={index}
-                className={`${index % 2 === 0 ? "bg-linen" : "bg-peach"} rounded-2xl p-12 border-b border-peach pb-16 last:border-b-0`}
+                className={`${index % 2 === 0 ? "bg-linen" : "bg-peach"} rounded-lg shadow-md p-6 border-b border-peach pb-16 last:border-b-0`}
                 variants={fadeInUp}
               >
-                <h2 className="text-3xl font-serif font-semibold tracking-wide text-espresso mb-12 text-center">
+                <h2 className="text-3xl font-serif font-semibold tracking-wide text-tangerine mb-12 text-center">
                   {category.category}
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -154,9 +159,13 @@ export default function ServicesPage() {
                       whileHover={{ scale: 1.05, y: -5 }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ duration: 0.2 }}
+                      variants={scaleIn}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
                     >
-                      <Card className="border-0 shadow-lg bg-white hover:shadow-xl transition-all duration-300 h-full">
-                        <CardContent className="p-6 text-center h-full flex flex-col justify-between">
+                      <Card className="rounded-lg shadow-md p-6 bg-white hover:shadow-xl transition-all duration-300 h-full border-0">
+                        <CardContent className="p-0 text-center h-full flex flex-col justify-between">
                           <div>
                             <h3 className="text-xl font-serif font-semibold tracking-wide text-espresso mb-2">
                               {treatment.name}
@@ -184,7 +193,7 @@ export default function ServicesPage() {
               All services include a complimentary consultation. Prices may vary based on hair length and condition.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button className="bg-tangerine text-white hover:brightness-110 font-sans font-medium tracking-wide px-8 py-3 rounded-full transition-all">
+              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow transition-all duration-200 font-sans font-medium tracking-wide">
                 BOOK YOUR APPOINTMENT
               </Button>
             </motion.div>
