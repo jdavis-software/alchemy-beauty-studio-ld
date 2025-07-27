@@ -117,7 +117,7 @@ export default function ServicesPage() {
       <MobileCTA />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-peach">
+      <section className="pt-32 pb-16 bg-blush">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -131,7 +131,7 @@ export default function ServicesPage() {
             >
               SERVICES
             </motion.h1>
-            <motion.div className="w-16 h-1 bg-tangerine mx-auto mb-6" variants={fadeInUp}></motion.div>
+            <motion.div className="w-16 h-1 bg-coral mx-auto mb-6" variants={fadeInUp}></motion.div>
             <motion.p className="text-lg font-sans text-plum max-w-2xl mx-auto" variants={fadeInUp}>
               Experience luxury hair care with our comprehensive range of services, delivered by our team of expert
               stylists using only the finest products.
@@ -153,7 +153,7 @@ export default function ServicesPage() {
             {services.map((category, index) => (
               <motion.div key={index} className="space-y-8" variants={fadeInUp}>
                 <div className="text-center">
-                  <span className="inline-block bg-tangerine text-white px-6 py-2 rounded-full text-sm font-serif font-medium tracking-wide">
+                  <span className="inline-block bg-coral text-white px-6 py-2 rounded-full text-sm font-serif font-medium tracking-wide">
                     {category.category}
                   </span>
                 </div>
@@ -175,7 +175,7 @@ export default function ServicesPage() {
                             <h3 className="text-xl font-serif font-semibold tracking-wide text-espresso mb-2">
                               {treatment.name}
                             </h3>
-                            <p className="text-lg font-sans font-medium text-tangerine mb-4">{treatment.price}</p>
+                            <p className="text-lg font-sans font-medium text-coral mb-4">{treatment.price}</p>
                             <p className="text-sm font-sans text-plum leading-relaxed">{treatment.description}</p>
                           </div>
                         </CardContent>
@@ -185,7 +185,7 @@ export default function ServicesPage() {
                 </div>
                 {index < services.length - 1 && (
                   <div className="flex justify-center">
-                    <div className="w-24 h-px bg-tangerine/30"></div>
+                    <div className="w-24 h-px bg-rosewood/30"></div>
                   </div>
                 )}
               </motion.div>
@@ -203,7 +203,7 @@ export default function ServicesPage() {
               All services include a complimentary consultation. Prices may vary based on hair length and condition.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow-lg transition-all duration-200 font-sans font-medium tracking-wide">
+              <Button className="bg-coral text-white px-6 py-3 rounded-full hover:bg-rosewood shadow-lg transition-all duration-200 font-sans font-medium tracking-wide">
                 BOOK YOUR APPOINTMENT
               </Button>
             </motion.div>

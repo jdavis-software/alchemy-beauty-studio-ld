@@ -57,7 +57,7 @@ export function EnhancedAccordion() {
         return (
           <motion.div
             key={policy.id}
-            className="border border-peach/40 rounded-lg shadow-sm overflow-hidden bg-white"
+            className="border border-mist rounded-lg shadow-sm overflow-hidden bg-lavender"
             variants={scaleIn}
             initial="hidden"
             whileInView="visible"
@@ -65,13 +65,13 @@ export function EnhancedAccordion() {
             transition={{ delay: index * 0.1 }}
           >
             <button
-              className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-peach/10 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-tangerine focus:ring-inset"
+              className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-blush/20 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-coral focus:ring-inset"
               onClick={() => setOpenItem(isOpen ? null : policy.id)}
               aria-expanded={isOpen}
               aria-controls={`policy-${policy.id}`}
             >
               <div className="flex items-center space-x-3">
-                <Icon className="w-5 h-5 text-tangerine flex-shrink-0" />
+                <Icon className="w-5 h-5 text-coral flex-shrink-0" />
                 <span className="font-serif font-medium text-espresso">{policy.title}</span>
               </div>
               <motion.div
@@ -79,7 +79,7 @@ export function EnhancedAccordion() {
                 transition={{ duration: 0.2, ease: "easeInOut" }}
                 className="flex-shrink-0"
               >
-                <ChevronDown className="w-5 h-5 text-clay" />
+                <ChevronDown className="w-5 h-5 text-plum" />
               </motion.div>
             </button>
 
@@ -93,7 +93,7 @@ export function EnhancedAccordion() {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 py-4 bg-linen/30 border-t border-linen/40">
+                  <div className="px-6 py-4 bg-linen/30 border-t border-mist">
                     <motion.p
                       className="text-sm font-sans text-plum leading-relaxed"
                       variants={fadeInUp}

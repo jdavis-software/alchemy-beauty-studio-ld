@@ -84,7 +84,7 @@ export default function TeamPage() {
       <MobileCTA />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-peach">
+      <section className="pt-32 pb-16 bg-blush">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -98,7 +98,7 @@ export default function TeamPage() {
             >
               MEET THE TEAM
             </motion.h1>
-            <motion.div className="w-16 h-1 bg-tangerine mx-auto mb-6" variants={fadeInUp}></motion.div>
+            <motion.div className="w-16 h-1 bg-coral mx-auto mb-6" variants={fadeInUp}></motion.div>
             <motion.p className="text-lg font-sans text-plum max-w-2xl mx-auto" variants={fadeInUp}>
               Our talented team of artists brings passion, expertise, and creativity to every transformation. Get to
               know the professionals who will help you achieve your beauty goals.
@@ -150,14 +150,14 @@ export default function TeamPage() {
                 >
                   <div>
                     <h2 className="text-3xl md:text-4xl font-serif font-bold text-espresso mb-2">{member.name}</h2>
-                    <p className="text-xl font-sans font-medium text-tangerine mb-4">{member.role}</p>
+                    <p className="text-xl font-sans font-medium text-coral mb-4">{member.role}</p>
                   </div>
 
                   <div className="flex flex-wrap gap-2">
                     {member.specialties.map((specialty, specialtyIndex) => (
                       <span
                         key={specialtyIndex}
-                        className="inline-block bg-peach/60 text-espresso px-3 py-1 rounded-full text-sm font-sans font-medium border border-tangerine/20"
+                        className="inline-block bg-blush/60 text-espresso px-3 py-1 rounded-full text-sm font-sans font-medium border border-mist"
                       >
                         {specialty}
                       </span>
@@ -168,14 +168,14 @@ export default function TeamPage() {
 
                   <div className="space-y-3">
                     <div className="flex items-center space-x-2">
-                      <Award className="w-4 h-4 text-tangerine" />
+                      <Award className="w-4 h-4 text-coral" />
                       <span className="text-sm font-sans font-medium text-espresso">Certifications:</span>
                     </div>
                     <div className="flex flex-wrap gap-2 ml-6">
                       {member.certifications.map((cert, certIndex) => (
                         <span
                           key={certIndex}
-                          className="text-xs font-sans text-plum bg-linen px-2 py-1 rounded border border-peach/40"
+                          className="text-xs font-sans text-plum bg-linen px-2 py-1 rounded border border-mist"
                         >
                           {cert}
                         </span>
@@ -188,7 +188,7 @@ export default function TeamPage() {
                       href={`https://instagram.com/${member.instagram.replace("@", "")}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-tangerine hover:text-clay transition-colors focus:outline-none focus:ring-2 focus:ring-tangerine focus:ring-offset-2 rounded"
+                      className="flex items-center space-x-2 text-coral hover:text-rosewood transition-colors focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2 rounded"
                     >
                       <Instagram className="w-5 h-5" />
                       <span className="text-sm font-sans">{member.instagram}</span>
@@ -201,7 +201,7 @@ export default function TeamPage() {
 
           {/* CTA Section */}
           <motion.div
-            className="text-center mt-20 bg-peach/30 rounded-xl p-12"
+            className="text-center mt-20 bg-blush/30 rounded-xl p-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -213,7 +213,7 @@ export default function TeamPage() {
               special.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow-lg transition-all duration-200 font-sans font-medium tracking-wide">
+              <Button className="bg-coral text-white px-6 py-3 rounded-full hover:bg-rosewood shadow-lg transition-all duration-200 font-sans font-medium tracking-wide">
                 BOOK YOUR APPOINTMENT
               </Button>
             </motion.div>

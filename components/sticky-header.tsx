@@ -35,37 +35,37 @@ export function StickyHeader() {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="/services"
-              className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-tangerine transition-colors"
+              className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-coral transition-colors"
             >
               SERVICES
             </Link>
             <Link
               href="/about"
-              className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-tangerine transition-colors"
+              className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-coral transition-colors"
             >
               ABOUT US
             </Link>
             <Link
               href="/team"
-              className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-tangerine transition-colors"
+              className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-coral transition-colors"
             >
               MEET THE TEAM
             </Link>
             <Link
               href="/press"
-              className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-tangerine transition-colors"
+              className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-coral transition-colors"
             >
               PRESS
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-tangerine transition-colors"
+              className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-coral transition-colors"
             >
               CONTACT
             </Link>
           </nav>
 
-          <Button className="hidden md:inline-flex bg-tangerine text-white hover:brightness-110 font-sans font-medium tracking-wide text-sm px-6 py-2 rounded-full transition-all">
+          <Button className="hidden md:inline-flex bg-coral text-white hover:bg-rosewood font-sans font-medium tracking-wide text-sm px-6 py-2 rounded-full transition-all">
             BOOK AN APPOINTMENT
           </Button>
 

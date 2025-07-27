@@ -7,7 +7,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-linen">
       {/* Header */}
-      <header className="relative z-10 bg-linen border-b border-peach">
+      <header className="relative z-10 bg-linen border-b border-mist">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <Link href="/" className="text-2xl font-serif font-bold tracking-wider text-espresso">
@@ -16,33 +16,33 @@ export default function ContactPage() {
             <nav className="hidden md:flex items-center space-x-8">
               <Link
                 href="/services"
-                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
+                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-coral transition-colors"
               >
                 SERVICES
               </Link>
               <Link
                 href="/about"
-                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
+                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-coral transition-colors"
               >
                 ABOUT US
               </Link>
               <Link
                 href="/team"
-                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
+                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-coral transition-colors"
               >
                 MEET THE TEAM
               </Link>
               <Link
                 href="/press"
-                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
+                className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-coral transition-colors"
               >
                 PRESS
               </Link>
-              <Link href="/contact" className="text-sm font-sans font-medium tracking-wide text-clay">
+              <Link href="/contact" className="text-sm font-sans font-medium tracking-wide text-coral">
                 CONTACT
               </Link>
             </nav>
-            <Button className="hidden md:inline-flex bg-tangerine text-white hover:bg-clay font-sans font-medium tracking-wide text-sm px-6 py-2 rounded-full transition-colors">
+            <Button className="hidden md:inline-flex bg-coral text-white hover:bg-rosewood font-sans font-medium tracking-wide text-sm px-6 py-2 rounded-full transition-colors">
               BOOK AN APPOINTMENT
             </Button>
           </div>
@@ -54,7 +54,7 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-wider text-espresso mb-6">CONTACT US</h1>
-            <p className="text-lg font-sans text-clay max-w-2xl mx-auto">
+            <p className="text-lg font-sans text-plum max-w-2xl mx-auto">
               We'd love to hear from you. Get in touch to book an appointment or learn more about our services.
             </p>
           </div>
@@ -62,13 +62,13 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-16 mb-16">
             {/* Contact Information */}
             <div className="space-y-8">
-              <Card className="border-0 shadow-none bg-peach">
+              <Card className="border-0 shadow-none bg-blush">
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <MapPin className="w-6 h-6 text-tangerine mt-1" />
+                    <MapPin className="w-6 h-6 text-coral mt-1" />
                     <div>
                       <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Location</h3>
-                      <p className="text-clay font-sans">
+                      <p className="text-plum font-sans">
                         120 Thoma St, Suite 2
                         <br />
                         Reno, NV 89501
@@ -78,14 +78,14 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-none bg-peach">
+              <Card className="border-0 shadow-none bg-blush">
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <Phone className="w-6 h-6 text-tangerine mt-1" />
+                    <Phone className="w-6 h-6 text-coral mt-1" />
                     <div>
                       <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Phone</h3>
-                      <p className="text-clay font-sans">
-                        <a href="tel:+17755551234" className="hover:text-tangerine transition-colors">
+                      <p className="text-plum font-sans">
+                        <a href="tel:+17755551234" className="hover:text-coral transition-colors">
                           (775) 555-1234
                         </a>
                       </p>
@@ -94,17 +94,14 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-none bg-peach">
+              <Card className="border-0 shadow-none bg-blush">
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <Mail className="w-6 h-6 text-tangerine mt-1" />
+                    <Mail className="w-6 h-6 text-coral mt-1" />
                     <div>
                       <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Email</h3>
-                      <p className="text-clay font-sans">
-                        <a
-                          href="mailto:hello@alchemybeautystudio.com"
-                          className="hover:text-tangerine transition-colors"
-                        >
+                      <p className="text-plum font-sans">
+                        <a href="mailto:hello@alchemybeautystudio.com" className="hover:text-coral transition-colors">
                           hello@alchemybeautystudio.com
                         </a>
                       </p>
@@ -113,13 +110,13 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-none bg-peach">
+              <Card className="border-0 shadow-none bg-blush">
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <Clock className="w-6 h-6 text-tangerine mt-1" />
+                    <Clock className="w-6 h-6 text-coral mt-1" />
                     <div>
                       <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Hours</h3>
-                      <div className="text-clay font-sans space-y-1">
+                      <div className="text-plum font-sans space-y-1">
                         <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
                       </div>
                     </div>
@@ -130,7 +127,7 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div>
-              <Card className="border border-peach bg-white">
+              <Card className="border border-mist bg-white">
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-serif font-semibold tracking-wide text-espresso mb-6">
                     Send us a message
@@ -145,7 +142,7 @@ export default function ContactPage() {
                           type="text"
                           id="firstName"
                           name="firstName"
-                          className="w-full px-4 py-3 border border-peach rounded-lg focus:ring-2 focus:ring-tangerine focus:border-transparent font-sans"
+                          className="w-full px-4 py-3 border border-mist rounded-lg focus:ring-2 focus:ring-coral focus:border-transparent font-sans"
                           required
                         />
                       </div>
@@ -157,7 +154,7 @@ export default function ContactPage() {
                           type="text"
                           id="lastName"
                           name="lastName"
-                          className="w-full px-4 py-3 border border-peach rounded-lg focus:ring-2 focus:ring-tangerine focus:border-transparent font-sans"
+                          className="w-full px-4 py-3 border border-mist rounded-lg focus:ring-2 focus:ring-coral focus:border-transparent font-sans"
                           required
                         />
                       </div>
@@ -170,7 +167,7 @@ export default function ContactPage() {
                         type="email"
                         id="email"
                         name="email"
-                        className="w-full px-4 py-3 border border-peach rounded-lg focus:ring-2 focus:ring-tangerine focus:border-transparent font-sans"
+                        className="w-full px-4 py-3 border border-mist rounded-lg focus:ring-2 focus:ring-coral focus:border-transparent font-sans"
                         required
                       />
                     </div>
@@ -182,7 +179,7 @@ export default function ContactPage() {
                         type="tel"
                         id="phone"
                         name="phone"
-                        className="w-full px-4 py-3 border border-peach rounded-lg focus:ring-2 focus:ring-tangerine focus:border-transparent font-sans"
+                        className="w-full px-4 py-3 border border-mist rounded-lg focus:ring-2 focus:ring-coral focus:border-transparent font-sans"
                       />
                     </div>
                     <div>
@@ -192,7 +189,7 @@ export default function ContactPage() {
                       <select
                         id="service"
                         name="service"
-                        className="w-full px-4 py-3 border border-peach rounded-lg focus:ring-2 focus:ring-tangerine focus:border-transparent font-sans"
+                        className="w-full px-4 py-3 border border-mist rounded-lg focus:ring-2 focus:ring-coral focus:border-transparent font-sans"
                       >
                         <option value="">Select a service</option>
                         <option value="blonding">Blonding & Color</option>
@@ -211,11 +208,11 @@ export default function ContactPage() {
                         id="message"
                         name="message"
                         rows={4}
-                        className="w-full px-4 py-3 border border-peach rounded-lg focus:ring-2 focus:ring-tangerine focus:border-transparent font-sans"
+                        className="w-full px-4 py-3 border border-mist rounded-lg focus:ring-2 focus:ring-coral focus:border-transparent font-sans"
                         placeholder="Tell us about your hair goals or any questions you have..."
                       ></textarea>
                     </div>
-                    <Button className="w-full bg-tangerine text-white hover:bg-clay font-sans font-medium tracking-wide py-3 rounded-full transition-colors">
+                    <Button className="w-full bg-coral text-white hover:bg-rosewood font-sans font-medium tracking-wide py-3 rounded-full transition-colors">
                       SEND MESSAGE
                     </Button>
                   </form>
@@ -225,14 +222,14 @@ export default function ContactPage() {
           </div>
 
           {/* Map Section */}
-          <div className="bg-peach rounded-lg p-8 text-center">
+          <div className="bg-blush rounded-lg p-8 text-center">
             <h2 className="text-2xl font-serif font-semibold tracking-wide text-espresso mb-4">Visit Our Studio</h2>
-            <p className="text-lg font-sans text-clay mb-6">Located in Midtown Reno on Thoma Street</p>
+            <p className="text-lg font-sans text-plum mb-6">Located in Midtown Reno on Thoma Street</p>
             <div className="bg-linen rounded-lg h-64 flex items-center justify-center">
-              <p className="text-clay font-sans">Interactive Map Coming Soon</p>
+              <p className="text-plum font-sans">Interactive Map Coming Soon</p>
             </div>
             <div className="mt-6">
-              <Button className="bg-tangerine text-white hover:bg-clay font-sans font-medium tracking-wide rounded-full transition-colors">
+              <Button className="bg-coral text-white hover:bg-rosewood font-sans font-medium tracking-wide rounded-full transition-colors">
                 GET DIRECTIONS
               </Button>
             </div>

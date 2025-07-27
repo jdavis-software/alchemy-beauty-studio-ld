@@ -20,12 +20,15 @@ const config: Config = {
     },
     extend: {
       colors: {
-        espresso: "#1c130c", // Deep Espresso Brown
-        clay: "#743627", // Rustic Red-Brown
-        tangerine: "#be4f1f", // Burnt Tangerine
-        peach: "#edc2a3", // Soft Peach
-        linen: "#e3ded4", // Warm Light Beige
-        plum: "#4a3c3a", // For body text on light backgrounds
+        blush: "#F3D8D8", // Base background / soft UI fills
+        espresso: "#2B1E1E", // Primary text / headings
+        plum: "#594345", // Secondary text / nav links
+        coral: "#E68A6E", // CTA buttons / accent highlights
+        rosewood: "#9B5D5B", // Hover states / deep accents
+        lavender: "#D6C2CD", // Section contrast / testimonial blocks
+        linen: "#F4EFEF", // Light background / section dividers
+        mist: "#E0D6D6", // Soft UI borders
+        sage: "#D9E3D6", // Optional spa/accent balance
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

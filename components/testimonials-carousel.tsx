@@ -49,7 +49,7 @@ export function TestimonialsCarousel() {
 
   return (
     <div className="relative max-w-4xl mx-auto">
-      <div className="overflow-hidden rounded-xl bg-white shadow-lg p-8">
+      <div className="overflow-hidden rounded-xl bg-white shadow-lg p-8 border border-mist">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -61,7 +61,7 @@ export function TestimonialsCarousel() {
           >
             <div className="flex justify-center mb-4">
               {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-tangerine fill-current" />
+                <Star key={i} className="w-5 h-5 text-coral fill-current" />
               ))}
             </div>
             <blockquote className="text-lg font-sans text-plum italic mb-6 leading-relaxed">
@@ -71,7 +71,7 @@ export function TestimonialsCarousel() {
               <cite className="text-espresso font-serif font-semibold not-italic">
                 {testimonials[currentIndex].name}
               </cite>
-              <p className="text-sm text-clay font-sans">{testimonials[currentIndex].service}</p>
+              <p className="text-sm text-plum font-sans">{testimonials[currentIndex].service}</p>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -80,7 +80,7 @@ export function TestimonialsCarousel() {
       <div className="flex justify-center items-center mt-6 space-x-4">
         <button
           onClick={prevTestimonial}
-          className="p-2 rounded-full bg-peach text-tangerine hover:bg-tangerine hover:text-white transition-colors duration-200"
+          className="p-2 rounded-full bg-blush text-coral hover:bg-coral hover:text-white transition-colors duration-200"
           aria-label="Previous testimonial"
         >
           <ChevronLeft className="w-5 h-5" />
@@ -92,7 +92,7 @@ export function TestimonialsCarousel() {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                index === currentIndex ? "bg-tangerine" : "bg-peach"
+                index === currentIndex ? "bg-coral" : "bg-blush"
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />
@@ -101,7 +101,7 @@ export function TestimonialsCarousel() {
 
         <button
           onClick={nextTestimonial}
-          className="p-2 rounded-full bg-peach text-tangerine hover:bg-tangerine hover:text-white transition-colors duration-200"
+          className="p-2 rounded-full bg-blush text-coral hover:bg-coral hover:text-white transition-colors duration-200"
           aria-label="Next testimonial"
         >
           <ChevronRight className="w-5 h-5" />

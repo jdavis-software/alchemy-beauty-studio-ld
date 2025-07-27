@@ -14,7 +14,7 @@ export function MobileCTA() {
         whileTap={{ scale: 0.95 }}
       >
         <Button
-          className="bg-tangerine text-white px-4 py-2 rounded-full shadow-lg hover:brightness-110 transition-all duration-200 font-sans font-medium"
+          className="bg-coral text-white px-4 py-2 rounded-full shadow-lg hover:bg-rosewood transition-all duration-200 font-sans font-medium"
           onClick={() => window.open("tel:7755551234", "_self")}
         >
           Book Now

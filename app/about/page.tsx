@@ -22,13 +22,13 @@ export default function AboutPage() {
       <MobileCTA />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-peach">
+      <section className="pt-32 pb-16 bg-blush">
         <div className="container mx-auto px-4">
           <motion.div className="text-center max-w-4xl mx-auto" initial="hidden" animate="visible" variants={fadeInUp}>
             <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight text-espresso mb-6 leading-tight">
               ABOUT ALCHEMY BEAUTY STUDIO
             </h1>
-            <div className="w-16 h-1 bg-tangerine mx-auto"></div>
+            <div className="w-16 h-1 bg-coral mx-auto"></div>
           </motion.div>
         </div>
       </section>
@@ -55,7 +55,7 @@ export default function AboutPage() {
             </motion.div>
             <motion.div className="space-y-6" variants={fadeInUp}>
               <h2 className="text-4xl font-serif font-semibold tracking-wide text-espresso">Our Story</h2>
-              <div className="w-16 h-1 bg-tangerine"></div>
+              <div className="w-16 h-1 bg-coral"></div>
               <p className="text-lg font-sans text-plum leading-relaxed">
                 Welcome to Alchemy Beauty Studio — a boutique salon in Midtown Reno where science meets beauty, and
                 transformation becomes art. Located in the heart of Reno's vibrant Midtown district, we've created a
@@ -71,7 +71,7 @@ export default function AboutPage() {
 
           {/* Our Philosophy Section */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-peach rounded-xl shadow-md p-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-blush rounded-xl shadow-md p-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -79,7 +79,7 @@ export default function AboutPage() {
           >
             <motion.div className="space-y-6 md:order-2" variants={fadeInUp}>
               <h2 className="text-4xl font-serif font-semibold tracking-wide text-espresso">Our Philosophy</h2>
-              <div className="w-16 h-1 bg-tangerine"></div>
+              <div className="w-16 h-1 bg-coral"></div>
               <p className="text-lg font-sans text-plum leading-relaxed">
                 At Alchemy Beauty Studio, we believe that true beauty transformation is both an art and a science. Our
                 approach combines technical precision with creative vision, ensuring that every color, cut, and style is
@@ -104,7 +104,7 @@ export default function AboutPage() {
 
           {/* Awards Section */}
           <motion.div
-            className="bg-linen rounded-xl shadow-md p-12 text-center"
+            className="bg-lavender rounded-xl shadow-md p-12 text-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -118,22 +118,22 @@ export default function AboutPage() {
             </motion.h2>
             <motion.div className="grid md:grid-cols-3 gap-8" variants={staggerChildren}>
               <motion.div variants={fadeInUp}>
-                <div className="bg-peach rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-md">
-                  <span className="text-2xl font-serif font-bold text-tangerine">2023</span>
+                <div className="bg-blush rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <span className="text-2xl font-serif font-bold text-coral">2023</span>
                 </div>
                 <h3 className="text-xl font-serif font-medium text-espresso mb-2">Best Salon</h3>
                 <p className="text-sm font-sans text-plum">Reno Magazine</p>
               </motion.div>
               <motion.div variants={fadeInUp}>
-                <div className="bg-peach rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-md">
-                  <span className="text-2xl font-serif font-bold text-tangerine">2023</span>
+                <div className="bg-blush rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <span className="text-2xl font-serif font-bold text-coral">2023</span>
                 </div>
                 <h3 className="text-xl font-serif font-medium text-espresso mb-2">Top Colorist</h3>
                 <p className="text-sm font-sans text-plum">Nevada Beauty Awards</p>
               </motion.div>
               <motion.div variants={fadeInUp}>
-                <div className="bg-peach rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-md">
-                  <span className="text-2xl font-serif font-bold text-tangerine">2023</span>
+                <div className="bg-blush rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 shadow-md">
+                  <span className="text-2xl font-serif font-bold text-coral">2023</span>
                 </div>
                 <h3 className="text-xl font-serif font-medium text-espresso mb-2">Eco-Friendly Salon</h3>
                 <p className="text-sm font-sans text-plum">Green Beauty Awards</p>
@@ -150,7 +150,7 @@ export default function AboutPage() {
             variants={fadeInUp}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow-lg transition-all duration-200 font-sans font-medium tracking-wide">
+              <Button className="bg-coral text-white px-6 py-3 rounded-full hover:bg-rosewood shadow-lg transition-all duration-200 font-sans font-medium tracking-wide">
                 BOOK YOUR APPOINTMENT
               </Button>
             </motion.div>
