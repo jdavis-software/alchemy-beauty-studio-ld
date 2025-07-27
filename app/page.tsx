@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { StickyHeader } from "@/components/sticky-header"
 import { MobileCTA } from "@/components/mobile-cta"
-import { PoliciesAccordion } from "@/components/policies-accordion"
+import { EnhancedAccordion } from "@/components/enhanced-accordion"
+import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 import { Phone, Mail, Instagram, MapPin, ExternalLink } from "lucide-react"
 
 const fadeInUp = {
@@ -15,27 +16,39 @@ const fadeInUp = {
 }
 
 const staggerChildren = {
-  visible: { transition: { staggerChildren: 0.2 } },
-}
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-}
-
-const wordStagger = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
     },
   },
 }
 
-const wordVariant = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+}
+
+const heroAnimation = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
 }
 
 export default function Component() {
@@ -112,19 +125,6 @@ export default function Component() {
     },
   ]
 
-  const heroWords = ["Where", "color", "meets", "craft."]
-  const taglineWords = [
-    "Reno's",
-    "destination",
-    "for",
-    "elevated",
-    "hair,",
-    "nail,",
-    "and",
-    "bridal",
-    "transformations.",
-  ]
-
   return (
     <div className="min-h-screen bg-linen">
       <StickyHeader />
@@ -156,34 +156,22 @@ export default function Component() {
           </motion.div>
 
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6"
-            variants={wordStagger}
-            initial="hidden"
-            animate="visible"
+            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-white mb-6 leading-tight tracking-tight"
+            variants={heroAnimation}
           >
-            {heroWords.map((word, index) => (
-              <motion.span key={index} variants={wordVariant} className="inline-block mr-4">
-                {word}
-              </motion.span>
-            ))}
+            Where color meets craft.
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl lg:text-3xl font-sans font-light text-peach mb-12"
-            variants={wordStagger}
-            initial="hidden"
-            animate="visible"
+            className="text-xl md:text-2xl lg:text-3xl font-sans font-light text-peach mb-12 leading-relaxed"
+            variants={fadeInUp}
           >
-            {taglineWords.map((word, index) => (
-              <motion.span key={index} variants={wordVariant} className="inline-block mr-2">
-                {word}
-              </motion.span>
-            ))}
+            Reno's destination for elevated hair, nail, and bridal transformations.
           </motion.p>
 
           <motion.div className="flex flex-col sm:flex-row gap-4 justify-center items-center" variants={fadeInUp}>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow transition-all duration-200 font-sans font-medium text-lg">
+              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow-lg transition-all duration-200 font-sans font-medium text-lg">
                 Book Appointment
               </Button>
             </motion.div>
@@ -215,11 +203,11 @@ export default function Component() {
                 alt="Alchemy Beauty Studio interior"
                 width={500}
                 height={600}
-                className="w-full h-auto rounded-lg shadow-lg"
+                className="w-full h-auto rounded-xl shadow-md"
               />
             </motion.div>
             <motion.div className="space-y-6" variants={fadeInUp}>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-espresso">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-espresso leading-tight">
                 Welcome to Alchemy Beauty Studio
               </h2>
               <div className="w-16 h-1 bg-tangerine"></div>
@@ -232,7 +220,7 @@ export default function Component() {
                 care with modern techniques to achieve stunning results.
               </p>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow transition-all duration-200 font-sans font-medium tracking-wide">
+                <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow-lg transition-all duration-200 font-sans font-medium tracking-wide">
                   LEARN MORE ABOUT US
                 </Button>
               </motion.div>
@@ -267,15 +255,17 @@ export default function Component() {
             variants={staggerChildren}
           >
             {services.map((category, index) => (
-              <motion.div key={index} className="border-b border-peach pb-16 last:border-b-0" variants={fadeInUp}>
-                <h3 className="text-2xl font-serif font-semibold tracking-wide text-tangerine mb-8 text-center">
-                  {category.category}
-                </h3>
+              <motion.div key={index} className="space-y-8" variants={fadeInUp}>
+                <div className="text-center">
+                  <span className="inline-block bg-tangerine text-white px-6 py-2 rounded-full text-sm font-serif font-medium tracking-wide">
+                    {category.category}
+                  </span>
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {category.treatments.map((treatment, treatmentIndex) => (
                     <motion.div
                       key={treatmentIndex}
-                      whileHover={{ scale: 1.05, y: -5 }}
+                      whileHover={{ scale: 1.02, y: -5 }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ duration: 0.2 }}
                       variants={scaleIn}
@@ -283,7 +273,7 @@ export default function Component() {
                       whileInView="visible"
                       viewport={{ once: true }}
                     >
-                      <Card className="rounded-lg shadow-md p-6 bg-white hover:shadow-xl transition-all duration-300 h-full border-0">
+                      <Card className="rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 h-full border-0 bg-white">
                         <CardContent className="p-0 text-center h-full flex flex-col justify-between">
                           <div>
                             <h4 className="text-xl font-serif font-semibold tracking-wide text-espresso mb-2">
@@ -297,6 +287,11 @@ export default function Component() {
                     </motion.div>
                   ))}
                 </div>
+                {index < services.length - 1 && (
+                  <div className="flex justify-center">
+                    <div className="w-24 h-px bg-tangerine/30"></div>
+                  </div>
+                )}
               </motion.div>
             ))}
           </motion.div>
@@ -304,11 +299,11 @@ export default function Component() {
       </section>
 
       {/* Bridal Section with Veil Texture */}
-      <section className="relative bg-gradient-to-br from-linen to-peach py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section className="relative bg-linen py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
           <Image
-            src="/placeholder.svg?height=800&width=1200&text=Bridal+Veil+Texture"
-            alt="Bridal veil texture background"
+            src="/placeholder.svg?height=800&width=1200&text=Subtle+Veil+Texture"
+            alt="Subtle veil texture background"
             fill
             className="object-cover"
           />
@@ -320,7 +315,10 @@ export default function Component() {
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerChildren}
         >
-          <motion.h2 className="text-4xl md:text-5xl font-serif font-bold text-espresso mb-6" variants={fadeInUp}>
+          <motion.h2
+            className="text-center text-5xl font-serif font-bold text-espresso mb-6 leading-tight"
+            variants={fadeInUp}
+          >
             Timeless Bridal Styling
           </motion.h2>
           <motion.div className="w-16 h-1 bg-tangerine mx-auto mb-6" variants={fadeInUp}></motion.div>
@@ -330,12 +328,39 @@ export default function Component() {
           </motion.p>
           <motion.div variants={fadeInUp}>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow transition-all duration-200 font-sans font-medium tracking-wide">
+              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow-lg transition-all duration-200 font-sans font-medium tracking-wide">
                 BOOK BRIDAL CONSULTATION
               </Button>
             </motion.div>
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="bg-peach py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+          >
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-espresso mb-6">CLIENT LOVE</h2>
+            <div className="w-16 h-1 bg-tangerine mx-auto mb-6"></div>
+            <p className="text-lg font-sans text-plum max-w-2xl mx-auto">
+              Hear what our clients have to say about their transformative experiences at Alchemy Beauty Studio.
+            </p>
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+          >
+            <TestimonialsCarousel />
+          </motion.div>
+        </div>
       </section>
 
       {/* Policies Section */}
@@ -356,14 +381,14 @@ export default function Component() {
               </p>
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <PoliciesAccordion />
+              <EnhancedAccordion />
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Block */}
-      <section className="bg-peach py-20 border-t border-linen">
+      <section className="bg-white py-20 border-t border-peach/20">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-4xl mx-auto text-center"
@@ -379,7 +404,7 @@ export default function Component() {
 
             <motion.div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" variants={staggerChildren}>
               <motion.div className="text-center" variants={scaleIn}>
-                <div className="bg-linen rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                <div className="bg-peach rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
                   <MapPin className="w-8 h-8 text-tangerine" />
                 </div>
                 <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Location</h3>
@@ -391,40 +416,40 @@ export default function Component() {
                   href="https://maps.apple.com/?q=120+Thoma+St+Suite+2+Reno+NV+89501"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-xs font-sans text-tangerine hover:text-clay transition-colors"
+                  className="inline-flex items-center text-xs font-sans text-tangerine hover:text-clay transition-colors focus:outline-none focus:ring-2 focus:ring-tangerine focus:ring-offset-2 rounded"
                 >
                   View on Maps <ExternalLink className="w-3 h-3 ml-1" />
                 </a>
               </motion.div>
 
               <motion.div className="text-center" variants={scaleIn}>
-                <div className="bg-linen rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                <div className="bg-peach rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
                   <Phone className="w-8 h-8 text-tangerine" />
                 </div>
                 <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Phone/Text</h3>
                 <a
-                  href="tel:+17755551234"
-                  className="text-sm font-sans text-tangerine hover:text-clay transition-colors"
+                  href="tel:7755551234"
+                  className="text-sm font-sans text-tangerine hover:text-clay transition-colors focus:outline-none focus:ring-2 focus:ring-tangerine focus:ring-offset-2 rounded"
                 >
                   (775) 555-1234
                 </a>
               </motion.div>
 
               <motion.div className="text-center" variants={scaleIn}>
-                <div className="bg-linen rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                <div className="bg-peach rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
                   <Mail className="w-8 h-8 text-tangerine" />
                 </div>
                 <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Email</h3>
                 <a
                   href="mailto:hello@alchemybeautystudio.com"
-                  className="text-sm font-sans text-tangerine hover:text-clay transition-colors"
+                  className="text-sm font-sans text-tangerine hover:text-clay transition-colors focus:outline-none focus:ring-2 focus:ring-tangerine focus:ring-offset-2 rounded"
                 >
                   hello@alchemybeautystudio.com
                 </a>
               </motion.div>
 
               <motion.div className="text-center" variants={scaleIn}>
-                <div className="bg-linen rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                <div className="bg-peach rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
                   <Instagram className="w-8 h-8 text-tangerine" />
                 </div>
                 <h3 className="text-lg font-serif font-semibold text-espresso mb-2">Instagram</h3>
@@ -432,14 +457,14 @@ export default function Component() {
                   href="https://instagram.com/alchemybeautystudioreno"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-sans text-tangerine hover:text-clay transition-colors"
+                  className="text-sm font-sans text-tangerine hover:text-clay transition-colors focus:outline-none focus:ring-2 focus:ring-tangerine focus:ring-offset-2 rounded"
                 >
                   @alchemybeautystudioreno
                 </a>
               </motion.div>
             </motion.div>
 
-            <motion.div className="bg-linen rounded-lg p-8 shadow-md border border-peach" variants={fadeInUp}>
+            <motion.div className="bg-peach/30 rounded-xl p-8 shadow-sm border border-peach/40" variants={fadeInUp}>
               <h3 className="text-2xl font-serif font-semibold text-espresso mb-4">Hours</h3>
               <p className="text-lg font-sans text-plum">Monday - Saturday: 9:00 AM - 6:00 PM</p>
               <p className="text-sm font-sans text-plum mt-2">Closed Sundays</p>

@@ -17,7 +17,14 @@ const staggerChildren = {
 
 const scaleIn = {
   hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
 }
 
 export default function ServicesPage() {
@@ -119,7 +126,7 @@ export default function ServicesPage() {
             variants={staggerChildren}
           >
             <motion.h1
-              className="text-5xl md:text-6xl font-serif font-bold tracking-wider text-espresso mb-6"
+              className="text-5xl md:text-6xl font-serif font-bold tracking-tight text-espresso mb-6 leading-tight"
               variants={fadeInUp}
             >
               SERVICES
@@ -144,19 +151,17 @@ export default function ServicesPage() {
             variants={staggerChildren}
           >
             {services.map((category, index) => (
-              <motion.div
-                key={index}
-                className={`${index % 2 === 0 ? "bg-linen" : "bg-peach"} rounded-lg shadow-md p-6 border-b border-peach pb-16 last:border-b-0`}
-                variants={fadeInUp}
-              >
-                <h2 className="text-3xl font-serif font-semibold tracking-wide text-tangerine mb-12 text-center">
-                  {category.category}
-                </h2>
+              <motion.div key={index} className="space-y-8" variants={fadeInUp}>
+                <div className="text-center">
+                  <span className="inline-block bg-tangerine text-white px-6 py-2 rounded-full text-sm font-serif font-medium tracking-wide">
+                    {category.category}
+                  </span>
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {category.treatments.map((treatment, treatmentIndex) => (
                     <motion.div
                       key={treatmentIndex}
-                      whileHover={{ scale: 1.05, y: -5 }}
+                      whileHover={{ scale: 1.02, y: -5 }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ duration: 0.2 }}
                       variants={scaleIn}
@@ -164,7 +169,7 @@ export default function ServicesPage() {
                       whileInView="visible"
                       viewport={{ once: true }}
                     >
-                      <Card className="rounded-lg shadow-md p-6 bg-white hover:shadow-xl transition-all duration-300 h-full border-0">
+                      <Card className="rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 h-full border-0 bg-white">
                         <CardContent className="p-0 text-center h-full flex flex-col justify-between">
                           <div>
                             <h3 className="text-xl font-serif font-semibold tracking-wide text-espresso mb-2">
@@ -178,6 +183,11 @@ export default function ServicesPage() {
                     </motion.div>
                   ))}
                 </div>
+                {index < services.length - 1 && (
+                  <div className="flex justify-center">
+                    <div className="w-24 h-px bg-tangerine/30"></div>
+                  </div>
+                )}
               </motion.div>
             ))}
           </motion.div>
@@ -193,7 +203,7 @@ export default function ServicesPage() {
               All services include a complimentary consultation. Prices may vary based on hair length and condition.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow transition-all duration-200 font-sans font-medium tracking-wide">
+              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow-lg transition-all duration-200 font-sans font-medium tracking-wide">
                 BOOK YOUR APPOINTMENT
               </Button>
             </motion.div>

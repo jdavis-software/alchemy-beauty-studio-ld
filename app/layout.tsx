@@ -18,11 +18,13 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "Alchemy Beauty Studio – Reno, NV | Where Color Meets Craft",
   description:
-    "Reno's premier boutique salon specializing in blonding, custom color, fantasy hues, extensions, nails, and bridal styling. Located in Midtown Reno at 120 Thoma St.",
-  keywords: "hair salon Reno, blonding specialist, hair color, extensions, nail services, bridal styling, Midtown Reno",
+    "Reno's premier boutique salon specializing in blonding, custom color, fantasy hues, extensions, nails, and bridal styling. Located in Midtown Reno at 120 Thoma St. Expert stylists using premium products for stunning transformations.",
+  keywords:
+    "hair salon Reno, blonding specialist, hair color, extensions, nail services, bridal styling, Midtown Reno, fantasy color, custom hair color",
   openGraph: {
-    title: "Alchemy Beauty Studio – Reno, NV",
-    description: "Where color meets craft. Reno's destination for elevated hair, nail, and bridal transformations.",
+    title: "Alchemy Beauty Studio – Reno, NV | Where Color Meets Craft",
+    description:
+      "Reno's destination for elevated hair, nail, and bridal transformations. Expert stylists, premium products, stunning results.",
     url: "https://alchemybeautystudio.com",
     siteName: "Alchemy Beauty Studio",
     images: [
@@ -57,6 +59,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <meta name="theme-color" content="#be4f1f" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={`${playfair.variable} ${lato.variable} font-sans antialiased`}>{children}</body>
     </html>

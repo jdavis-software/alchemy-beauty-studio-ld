@@ -25,7 +25,7 @@ export default function AboutPage() {
       <section className="pt-32 pb-16 bg-peach">
         <div className="container mx-auto px-4">
           <motion.div className="text-center max-w-4xl mx-auto" initial="hidden" animate="visible" variants={fadeInUp}>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-wider text-espresso mb-6">
+            <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight text-espresso mb-6 leading-tight">
               ABOUT ALCHEMY BEAUTY STUDIO
             </h1>
             <div className="w-16 h-1 bg-tangerine mx-auto"></div>
@@ -50,7 +50,7 @@ export default function AboutPage() {
                 alt="Alchemy Beauty Studio interior"
                 width={500}
                 height={600}
-                className="w-full h-auto rounded-lg shadow-lg"
+                className="w-full h-auto rounded-xl shadow-md"
               />
             </motion.div>
             <motion.div className="space-y-6" variants={fadeInUp}>
@@ -71,7 +71,7 @@ export default function AboutPage() {
 
           {/* Our Philosophy Section */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-peach rounded-lg shadow-md p-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-peach rounded-xl shadow-md p-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -97,14 +97,14 @@ export default function AboutPage() {
                 alt="Premium hair care products"
                 width={500}
                 height={600}
-                className="w-full h-auto rounded-lg shadow-lg"
+                className="w-full h-auto rounded-xl shadow-md"
               />
             </motion.div>
           </motion.div>
 
           {/* Awards Section */}
           <motion.div
-            className="bg-linen rounded-lg shadow-md p-6 text-center"
+            className="bg-linen rounded-xl shadow-md p-12 text-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -150,7 +150,7 @@ export default function AboutPage() {
             variants={fadeInUp}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow transition-all duration-200 font-sans font-medium tracking-wide">
+              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow-lg transition-all duration-200 font-sans font-medium tracking-wide">
                 BOOK YOUR APPOINTMENT
               </Button>
             </motion.div>
