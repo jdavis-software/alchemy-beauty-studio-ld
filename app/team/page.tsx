@@ -1,13 +1,19 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { StickyHeader } from "@/components/sticky-header"
 import { MobileCTA } from "@/components/mobile-cta"
+import { Instagram, Award } from "lucide-react"
 
-const containerVariants = {
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+}
+
+const staggerChildren = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -18,191 +24,202 @@ const containerVariants = {
   },
 }
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
+const scaleIn = {
+  hidden: { scale: 0.95, opacity: 0 },
+  visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
 }
 
 export default function TeamPage() {
   const teamMembers = [
     {
       name: "Chantel Sky",
-      title: "Owner, Senior Stylist, Educator",
-      experience: "15+ years",
-      specialties: ["Blonding Specialist", "Hair Extensions", "Color Transformations"],
-      bio: "Chantel founded Alchemy Beauty Studio with a vision set out to bring elevated hair and nail artistry to Reno by blending luxury with a laid back welcoming experience. She specializes in complex color transformations, blonding techniques, and hair extensions.",
-      image: "/team/chantel-sky.png",
+      role: "Master Stylist & Owner",
+      specialties: ["Blonding Specialist", "Color Correction", "Lived-In Color"],
+      bio: "With over 12 years of experience, Chantel is renowned for her expertise in blonding techniques and natural color placement. She founded Alchemy Beauty Studio with a vision to create a space where artistry meets science.",
+      image: "/placeholder.svg?height=400&width=400&text=Professional+Blonde+Stylist+Headshot",
+      instagram: "@chantelsky_hair",
+      certifications: ["Redken Certified", "Olaplex Specialist", "Balayage Expert"],
     },
     {
       name: "Morgan Perry",
-      title: "Senior Stylist",
-      experience: "4+ years",
-      specialties: ["Blonding", "Hair Extensions", "Cutting"],
-      bio: "Morgan is a blonding specialist known for her exceptional attention to detail and dedication to creating customized, dimensional looks.",
-      image: "/team/morgan-perry.png",
+      role: "Senior Colorist",
+      specialties: ["Fantasy Color", "Vivid Hues", "Color Transformations"],
+      bio: "Morgan's creative vision and technical precision make her the go-to artist for bold color transformations. She specializes in fantasy colors and has a passion for pushing creative boundaries.",
+      image: "/placeholder.svg?height=400&width=400&text=Creative+Brunette+Colorist+Portrait",
+      instagram: "@morganperry_color",
+      certifications: ["Pravana Certified", "Manic Panic Pro", "Color Theory Expert"],
     },
     {
       name: "Austin Calderoni",
-      title: "Stylist",
-      experience: "2+ years",
-      specialties: ["Color", "Gender Affirming Cuts", "Perms"],
-      bio: "Known for bold color, gender affirming haircuts, Austin creates looks that help every client feel seen and celebrated.",
-      image: "/team/austin-calderoni.png",
+      role: "Bridal & Event Specialist",
+      specialties: ["Bridal Styling", "Updos", "Special Occasion Hair"],
+      bio: "Austin brings elegance and sophistication to every bridal look. With an eye for detail and a passion for making every bride feel beautiful, Austin creates timeless styles for life's most important moments.",
+      image: "/placeholder.svg?height=400&width=400&text=Elegant+Bridal+Stylist+Professional",
+      instagram: "@austincalderoni_bridal",
+      certifications: ["Bridal Styling Certified", "Updo Specialist", "Wedding Hair Expert"],
     },
     {
       name: "Jordan Lang",
-      title: "Stylist",
-      experience: "12+ years",
-      specialties: ["Color Transformations"],
-      bio: "Jordan delivers expert color services with precision and creativity.",
-      image: "/team/jordan-lang.png",
+      role: "Extension & Cut Specialist",
+      specialties: ["Hair Extensions", "Precision Cuts", "Texture Specialist"],
+      bio: "Jordan's expertise in hair extensions and precision cutting creates seamless, natural-looking transformations. With a focus on hair health and longevity, Jordan ensures every client leaves feeling confident.",
+      image: "/placeholder.svg?height=400&width=400&text=Professional+Extension+Specialist+Photo",
+      instagram: "@jordanlang_extensions",
+      certifications: ["Extension Certified", "Cutting Specialist", "Hair Health Expert"],
     },
     {
       name: "Juliette",
-      title: "Nail Artist",
-      experience: "2+ years",
-      specialties: ["Gel-X Extensions", "Nail Art", "Spa Manicures"],
-      bio: "Juliette is a gel-x and nail artist known for intricate designs and custom press-ons that turn heads.",
-      image: "/team/juliette-nail-artist.png",
+      role: "Nail Artist",
+      specialties: ["Gel-X Extensions", "Nail Art", "Manicure Specialist"],
+      bio: "Juliette's artistic talent shines through in every nail design. From classic elegance to bold artistic expressions, she creates beautiful, long-lasting nail art that perfectly complements your style.",
+      image: "/placeholder.svg?height=400&width=400&text=Professional+Nail+Artist+With+Beautiful+Hands",
+      instagram: "@juliette_nails",
+      certifications: ["Gel-X Certified", "Nail Art Specialist", "Manicure Expert"],
     },
   ]
 
   return (
-    <>
-      <div className="min-h-screen bg-linen">
-        {/* Header */}
-        <header className="relative z-10 bg-linen border-b border-peach">
-          <div className="container mx-auto px-4 py-6">
-            <div className="flex items-center justify-between">
-              <Link href="/" className="text-2xl font-serif font-bold tracking-wider text-espresso">
-                ALCHEMY BEAUTY STUDIO
-              </Link>
-              <nav className="hidden md:flex items-center space-x-8">
-                <Link
-                  href="/services"
-                  className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
-                >
-                  SERVICES
-                </Link>
-                <Link
-                  href="/about"
-                  className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
-                >
-                  ABOUT US
-                </Link>
-                <Link href="/team" className="text-sm font-sans font-medium tracking-wide text-clay">
-                  MEET THE TEAM
-                </Link>
-                <Link
-                  href="/press"
-                  className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
-                >
-                  PRESS
-                </Link>
-                <Link
-                  href="/contact"
-                  className="text-sm font-sans font-medium tracking-wide text-espresso hover:text-clay transition-colors"
-                >
-                  CONTACT
-                </Link>
-              </nav>
-              <Button className="hidden md:inline-flex bg-tangerine text-white hover:bg-clay font-sans font-medium tracking-wide text-sm px-6 py-2 rounded-full transition-colors">
-                BOOK AN APPOINTMENT
-              </Button>
-            </div>
-          </div>
-        </header>
+    <div className="min-h-screen bg-linen">
+      <StickyHeader />
+      <MobileCTA />
 
-        {/* Team Content */}
-        <main className="container mx-auto px-4 py-16">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 bg-peach">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center max-w-4xl mx-auto"
+            initial="hidden"
+            animate="visible"
+            variants={staggerChildren}
+          >
+            <motion.h1
+              className="text-5xl md:text-6xl font-serif font-bold tracking-tight text-espresso mb-6 leading-tight"
+              variants={fadeInUp}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-tight text-espresso mb-6">
-                MEET THE TEAM
-              </h1>
-              <p className="text-lg font-sans text-clay max-w-2xl mx-auto leading-relaxed">
-                Our team of master stylists brings together decades of experience, artistic vision, and a passion for
-                creating beautiful hair.
-              </p>
-            </motion.div>
+              MEET THE TEAM
+            </motion.h1>
+            <motion.div className="w-16 h-1 bg-tangerine mx-auto mb-6" variants={fadeInUp}></motion.div>
+            <motion.p className="text-lg font-sans text-plum max-w-2xl mx-auto" variants={fadeInUp}>
+              Our talented team of artists brings passion, expertise, and creativity to every transformation. Get to
+              know the professionals who will help you achieve your beauty goals.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
 
-            <motion.div
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {teamMembers.map((member, index) => (
-                <motion.div key={index} variants={cardVariants}>
-                  <Card className="border-0 shadow-sm hover:shadow-md transition-all duration-300 bg-white rounded-xl overflow-hidden">
+      {/* Team Members */}
+      <main className="container mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            className="grid gap-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerChildren}
+          >
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={index}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${
+                  index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
+                }`}
+                variants={scaleIn}
+              >
+                <motion.div
+                  className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Card className="rounded-xl shadow-md overflow-hidden border-0 bg-white">
                     <CardContent className="p-0">
-                      <div className="mb-6">
-                        <Image
-                          src={member.image || "/placeholder.svg"}
-                          alt={`${member.name} - ${member.title} at Alchemy Beauty Studio`}
-                          width={400}
-                          height={500}
-                          className="w-full h-80 object-cover"
-                          priority={index < 3}
-                        />
-                      </div>
-                      <div className="text-center space-y-4 p-6">
-                        <div>
-                          <h3 className="text-xl font-serif font-semibold tracking-wide text-espresso mb-1">
-                            {member.name}
-                          </h3>
-                          <p className="text-sm font-sans text-clay mb-2">{member.title}</p>
-                          <p className="text-sm font-sans font-medium text-tangerine">{member.experience}</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-sans text-clay mb-4 leading-relaxed">{member.bio}</p>
-                          <div className="flex flex-wrap justify-center gap-2">
-                            {member.specialties.map((specialty, specialtyIndex) => (
-                              <span
-                                key={specialtyIndex}
-                                className="px-3 py-1 bg-peach text-xs font-sans text-espresso rounded-full border border-tangerine/20"
-                              >
-                                {specialty}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
+                      <Image
+                        src={member.image || "/placeholder.svg"}
+                        alt={`${member.name} - ${member.role}`}
+                        width={400}
+                        height={400}
+                        className="w-full h-96 object-cover"
+                        priority={index < 2}
+                      />
                     </CardContent>
                   </Card>
                 </motion.div>
-              ))}
-            </motion.div>
 
-            <motion.div
-              className="text-center mt-16"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            >
-              <p className="text-lg font-sans text-clay mb-8 leading-relaxed">
-                Ready to experience the Alchemy Beauty Studio difference? Book with one of our talented stylists today.
-              </p>
-              <Button className="bg-tangerine text-white hover:brightness-110 font-sans font-medium tracking-wide px-8 py-3 rounded-full transition-all duration-200 shadow-md hover:shadow-lg">
+                <motion.div
+                  className={`space-y-6 ${index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}
+                  variants={fadeInUp}
+                >
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-espresso mb-2">{member.name}</h2>
+                    <p className="text-xl font-sans font-medium text-tangerine mb-4">{member.role}</p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {member.specialties.map((specialty, specialtyIndex) => (
+                      <span
+                        key={specialtyIndex}
+                        className="inline-block bg-peach/60 text-espresso px-3 py-1 rounded-full text-sm font-sans font-medium border border-tangerine/20"
+                      >
+                        {specialty}
+                      </span>
+                    ))}
+                  </div>
+
+                  <p className="text-base font-sans text-plum leading-relaxed">{member.bio}</p>
+
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-2">
+                      <Award className="w-4 h-4 text-tangerine" />
+                      <span className="text-sm font-sans font-medium text-espresso">Certifications:</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2 ml-6">
+                      {member.certifications.map((cert, certIndex) => (
+                        <span
+                          key={certIndex}
+                          className="text-xs font-sans text-plum bg-linen px-2 py-1 rounded border border-peach/40"
+                        >
+                          {cert}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-4 pt-4">
+                    <a
+                      href={`https://instagram.com/${member.instagram.replace("@", "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-tangerine hover:text-clay transition-colors focus:outline-none focus:ring-2 focus:ring-tangerine focus:ring-offset-2 rounded"
+                    >
+                      <Instagram className="w-5 h-5" />
+                      <span className="text-sm font-sans">{member.instagram}</span>
+                    </a>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* CTA Section */}
+          <motion.div
+            className="text-center mt-20 bg-peach/30 rounded-xl p-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+          >
+            <h3 className="text-3xl font-serif font-bold text-espresso mb-6">Ready to Transform Your Look?</h3>
+            <p className="text-lg font-sans text-plum mb-8 max-w-2xl mx-auto">
+              Book a consultation with one of our talented artists and discover what makes Alchemy Beauty Studio
+              special.
+            </p>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+              <Button className="bg-tangerine text-white px-6 py-3 rounded-full hover:brightness-110 shadow-lg transition-all duration-200 font-sans font-medium tracking-wide">
                 BOOK YOUR APPOINTMENT
               </Button>
             </motion.div>
-          </div>
-        </main>
-      </div>
-      <MobileCTA />
-    </>
+          </motion.div>
+        </div>
+      </main>
+    </div>
   )
 }

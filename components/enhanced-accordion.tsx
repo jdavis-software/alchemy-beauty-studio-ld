@@ -10,30 +10,40 @@ const policies = [
     title: "Cancellation Policy",
     icon: Calendar,
     content:
-      "We require 24-hour notice for cancellations or rescheduling. Same-day cancellations or no-shows will be charged 50% of the service fee.",
+      "We require 24-hour notice for cancellations or rescheduling. Same-day cancellations or no-shows will be charged 50% of the service fee. We understand that emergencies happen, so please call us as soon as possible if you need to make changes to your appointment.",
   },
   {
     id: "payment",
     title: "Payment & Pricing",
     icon: CreditCard,
     content:
-      "We accept cash, credit cards, and digital payments. Prices may vary based on hair length, condition, and consultation. A deposit may be required for appointments over $200.",
+      "We accept cash, credit cards, and digital payments including Apple Pay and Google Pay. Prices may vary based on hair length, condition, and consultation requirements. A deposit may be required for appointments over $200 or for first-time clients booking premium services.",
   },
   {
     id: "arrival",
     title: "Arrival Time",
     icon: Clock,
     content:
-      "Please arrive 10 minutes early for your appointment. Late arrivals may result in shortened service time or rescheduling to accommodate other clients.",
+      "Please arrive 10 minutes early for your appointment to complete any necessary paperwork and prepare for your service. Late arrivals may result in shortened service time or rescheduling to accommodate other clients. We appreciate your understanding in helping us maintain our schedule.",
   },
   {
     id: "consultation",
     title: "Consultation Process",
     icon: AlertCircle,
     content:
-      "All color services include a complimentary consultation. We'll discuss your hair goals, assess your hair condition, and create a customized plan for your transformation.",
+      "All color services include a complimentary consultation to discuss your hair goals, assess your hair condition, and create a customized plan for your transformation. We'll review your hair history, lifestyle, and maintenance preferences to ensure the best possible results.",
   },
 ]
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+}
+
+const scaleIn = {
+  hidden: { scale: 0.95, opacity: 0 },
+  visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
+}
 
 export function EnhancedAccordion() {
   const [openItem, setOpenItem] = useState<string | null>(null)
@@ -47,9 +57,11 @@ export function EnhancedAccordion() {
         return (
           <motion.div
             key={policy.id}
-            className="rounded-lg overflow-hidden bg-white shadow-sm border border-peach/30"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="border border-peach/40 rounded-lg shadow-sm overflow-hidden bg-white"
+            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
           >
             <button
@@ -81,14 +93,19 @@ export function EnhancedAccordion() {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 py-4 bg-linen/50 border-t border-peach/20">
-                    <p className="text-sm font-sans text-plum leading-relaxed">{policy.content}</p>
+                  <div className="px-6 py-4 bg-linen/30 border-t border-linen/40">
+                    <motion.p
+                      className="text-sm font-sans text-plum leading-relaxed"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      animate="visible"
+                    >
+                      {policy.content}
+                    </motion.p>
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
-
-            {index < policies.length - 1 && <div className="h-px bg-peach/20" />}
           </motion.div>
         )
       })}

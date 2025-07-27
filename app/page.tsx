@@ -27,15 +27,8 @@ const staggerChildren = {
 }
 
 const scaleIn = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
+  hidden: { scale: 0.95, opacity: 0 },
+  visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
 }
 
 const heroAnimation = {
@@ -261,7 +254,7 @@ export default function Component() {
                     {category.category}
                   </span>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
                   {category.treatments.map((treatment, treatmentIndex) => (
                     <motion.div
                       key={treatmentIndex}
@@ -272,6 +265,7 @@ export default function Component() {
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
+                      className="w-full sm:w-80 md:w-72 lg:w-80"
                     >
                       <Card className="rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 h-full border-0 bg-white">
                         <CardContent className="p-0 text-center h-full flex flex-col justify-between">
@@ -413,12 +407,12 @@ export default function Component() {
                   Reno, NV 89501
                 </p>
                 <a
-                  href="https://maps.apple.com/?q=120+Thoma+St+Suite+2+Reno+NV+89501"
+                  href="https://maps.apple.com/?q=120+Thoma+St,+Reno+NV"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-xs font-sans text-tangerine hover:text-clay transition-colors focus:outline-none focus:ring-2 focus:ring-tangerine focus:ring-offset-2 rounded"
                 >
-                  View on Maps <ExternalLink className="w-3 h-3 ml-1" />
+                  View on Apple Maps <ExternalLink className="w-3 h-3 ml-1" />
                 </a>
               </motion.div>
 
